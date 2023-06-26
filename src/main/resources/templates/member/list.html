@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>수능 인강 강사 전체 조회</title>
+</head>
+<body>
+  <h1>전체 강사 조회</h1>
+  <table>
+    <tr>
+      <th>강사 코드</th>
+      <th>강사 이름</th>
+      <th>런칭일</th>
+      <th>구분 코드</th>
+      <th>과목 정보</th>
+      <th>수강생 수</th>
+      <th>연락처</th>
+      <th>소속 코드</th>
+      <th>활동 상태</th>
+    </tr>
+    <tr th:each="member : ${memberList}">
+      <td th:text="${member.memberCode}"></td>
+      <td th:text="${member.memberName}"></td>
+      <td th:text="${member.launchDate}"></td>
+      <td th:text="${member.divisionCode}"></td>
+      <td th:text="${member.detailInfo}"></td>
+      <td th:text="${member.studentQuantity}"></td>
+      <td th:text="${member.contact}"></td>
+      <td th:text="${member.teamCode}"></td>
+      <td th:text="${member.activeStatus}"></td>
+    </tr>
+  </table>
+
+
+
+  <div id="paging" >
+    <button
+            th:onclick="'location.href=\'/member/list?page=' + @{${paging.startPage}} + '\''"
+            th:disabled="${ memberList.first }">
+      <<
+    </button>
+    <button
+            th:onclick="'location.href=\'/member/list?page=' + @{${paging.currentPage - 1}} + '\''"
+            th:disabled="${ memberList.first }">
+      <
+    </button>
+    <th:block th:each="page : ${ #numbers.sequence(paging.startPage, paging.endPage)}">
+      <button th:onclick="'location.href=\'/member/list?page=' + @{${page}} + '\''"
+              th:text="${ page }"
+              th:disabled="${ paging.currentPage eq page }">
+      </button>
+    </th:block>
+    <button
+            th:onclick="'location.href=\'/member/list?page=' + @{${paging.currentPage + 1}} + '\''"
+            th:disabled="${ memberList.last }">
+      >
+    </button>
+    <button
+            th:onclick="'location.href=\'/member/list?page=' + @{${paging.endPage}} + '\''"
+            th:disabled="${ memberList.last }">
+      >>
+    </button>
+  </div>
+  <button onclick="location.href='/'">메인화면으로 돌아가기</button>
+</body>
+</html>

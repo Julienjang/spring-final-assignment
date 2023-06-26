@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> 신규 수능 인강 강사 등록</title>
+</head>
+<body>
+  <h1>신규 강사 등록</h1>
+  <form action="/member/regist" method="post">
+    <div class="form-group">
+      <label for="memberName">강사이름:</label>
+      <input type="text" class="form-control" name="memberName" id="memberName" placeholder="강사 이름 입력">
+    </div>
+    <div class="form-group">
+      <label for="launchDate">런칭년도:</label>
+      <input type="text" class="form-control" name="launchDate" id="launchDate" placeholder="런칭 년도 입력">
+    </div>
+    <div class="form-group">
+      <label for="divisionCode">구분코드:</label>
+      <input type="text" class="form-control" name="divisionCode" id="divisionCode" placeholder="구분 코드 입력">
+    </div>
+    <div class="form-group">
+      <label for="detailInfo">과목정보:</label>
+      <input type="text" class="form-control" name="detailInfo" id="detailInfo" placeholder="과목 정보 입력">
+    </div>
+    <div class="form-group">
+      <label for="studentQuantity">수강생:</label>
+      <input type="text" class="form-control" name="studentQuantity" id="studentQuantity" placeholder="수강생 수 입력">
+    </div>
+    <div class="form-group">
+      <label for="contact">연락처:</label>
+      <input type="tel" class="form-control" name="contact" id="contact" placeholder="연락처 입력">
+    </div>
+    <div class="form-group">
+      <label for="teamCode">소속코드:</label>
+      <input type="text" class="form-control" name="teamCode" id="teamCode" placeholder="소속 코드 입력">
+    </div>
+    <div class="form-group">
+      <label for="activeStatus">활동상태:</label>
+      <input type="text" class="form-control" name="activeStatus" id="activeStatus" placeholder="활동 상태 입력">
+    </div>
+    <button type="submit">등록하기</button>
+  </form>
+  <script>
+    fetch('/member/team')
+            .then(res => res.json())
+            .then(data => {
+              const $teamCode = document.getElementById('teamCode');
+              for (let index in data) {
+                const team = data[index];
+                const $option = document.createElement('option');
+                $option.value = team.teamCode;
+                $option.textContent = team.teamName;
+                $teamCode.appendChild($option);
+              }
+            });
+  </script>
+</body>
+</html>

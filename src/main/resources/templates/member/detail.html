@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>수능 인강 강사 조회</title>
+</head>
+<body>
+  <h1>[[${memberCode}]]번 강사의 정보</h1>
+  <table>
+    <tr>
+      <th>강사 코드</th>
+      <th>강사 이름</th>
+      <th>런칭일</th>
+      <th>구분 코드</th>
+      <th>과목 정보</th>
+      <th>수강생 수</th>
+      <th>연락처</th>
+      <th>소속 코드</th>
+      <th>활동 상태</th>
+    </tr>
+    <tr>
+      <td th:text="${member.memberCode}"></td>
+      <td th:text="${member.memberName}"></td>
+      <td th:text="${member.launchDate}"></td>
+      <td th:text="${member.divisionCode}"></td>
+      <td th:text="${member.detailInfo}"></td>
+      <td th:text="${member.studentQuantity}"></td>
+      <td th:text="${member.contact}"></td>
+      <td th:text="${member.teamCode}"></td>
+      <td th:text="${member.activeStatus}"></td>
+    </tr>
+  </table>
+
+
+  <button onclick="location.href='/'">메인화면으로 돌아가기</button>
+</body>
+</html>
