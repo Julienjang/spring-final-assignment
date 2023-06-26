@@ -3,12 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>수능 인강 강사 정보 수정 조회</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
+<div class="container mt-4">
     <h1>수정하고 싶은 강사 코드를 입력해주세요</h1>
-    <form action="/member/modify">
-        <input type="text" name="memberCode">
-        <button type="submit">강사 정보 수정하기</button>
+    <form class="form-inline my-2" action="/member/modify">
+        <input class="form-control mr-sm-2" type="text" name="memberCode" placeholder="강사 코드">
+        <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">강사 정보 수정하기</button>
     </form>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>

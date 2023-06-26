@@ -3,12 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>수능 인강강사 이름으로 강사 조회하기</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
-  <h1>조회하고 싶은 강사 코드를 입력해주세요</h1>
-  <form action="/member/searchName" method="post">
-    <input type="text" name="memberName">
-    <button type="submit">강사 정보 조회하기</button>
-  </form>
+<div class="container mt-4">
+    <h1>조회하고 싶은 강사 이름을 입력해주세요</h1>
+    <form class="form-inline my-2" action="/member/searchName" method="post">
+        <input class="form-control mr-sm-2" type="text" name="memberName" placeholder="강사 이름">
+        <button class="btn btn-outline-info my-2 my-sm-0" type="submit">강사 정보 조회하기</button>
+    </form>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>

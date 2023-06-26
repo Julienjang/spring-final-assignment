@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title> 신규 수능 인강 강사 등록</title>
+  <meta charset="UTF-8">
+  <title> 신규 수능 인강 강사 등록</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
+<div class="container mt-4">
   <h1>신규 강사 등록</h1>
   <form action="/member/regist" method="post">
     <div class="form-group">
@@ -39,8 +41,9 @@
       <label for="activeStatus">활동상태:</label>
       <input type="text" class="form-control" name="activeStatus" id="activeStatus" placeholder="활동 상태 입력">
     </div>
-    <button type="submit">등록하기</button>
+    <button type="submit" class="btn btn-success">등록하기</button>
   </form>
+</div>
   <script>
     fetch('/member/team')
             .then(res => res.json())

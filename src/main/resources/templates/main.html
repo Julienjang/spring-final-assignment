@@ -2,17 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>수능 인강 강사프로그램</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>수능인강 강사 프로그램</title>
 </head>
 <body>
-<h1>수능인강강사프로그램</h1>
-<ol>
-  <li><button onclick="location.href='/member/list'">전체 강사 조회하기</button></li>
-  <li><button onclick="location.href='/member/search'">강사코드로 조회하기</button></li>
-  <li><button onclick="location.href='member/searchName'">이름으로 강사 조회하기</button></li>
-  <li><button onclick="location.href='/member/regist'">신규 강사 등록하기</button></li>
-  <li><button onclick="location.href='/member/searchModify'">기존 강사 수정하기</button></li>
-  <li><button onclick="location.href='/member/delete'">기존 강사 삭제하기</button></li>
-</ol>
+<div class="container mt-4">
+    <h1 class="text-center mb-4" style="color: #5a6268; text-shadow: 2px 2px 4px #000000;">수능 인강 강사프로그램</h1>
+</div>
+<hr>
+    <div class="list-group">
+        <a href="/member/list" class="list-group-item list-group-item-action">전체 강사 조회하기</a>
+        <a href="/member/search" class="list-group-item list-group-item-action">강사코드로 조회하기</a>
+        <a href="/member/searchName" class="list-group-item list-group-item-action">이름으로 강사 조회하기</a>
+        <a href="/member/regist" class="list-group-item list-group-item-action">신규 강사 등록하기</a>
+        <a href="/member/searchModify" class="list-group-item list-group-item-action">기존 강사 수정하기</a>
+        <a href="/member/delete" class="list-group-item list-group-item-action">기존 강사 삭제하기</a>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>

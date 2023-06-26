@@ -3,22 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>수능 인강 강사 정보 수정</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
+<div class="container mt-4">
     <h1>강사 정보 수정</h1>
     <h3>수정하려는 [[${memberCode}]] 번 강사님의 현재 정보입니다.</h3>
-    <table>
+    <table class="table">
+        <thead class="thead-dark">
         <tr>
-            <th>강사 코드</th>
-            <th>강사 이름</th>
-            <th>런칭일</th>
-            <th>구분 코드</th>
-            <th>과목 정보</th>
-            <th>수강생 수</th>
-            <th>연락처</th>
-            <th>소속 코드</th>
-            <th>활동 상태</th>
+            <th scope="col">강사 코드</th>
+            <th scope="col">강사 이름</th>
+            <th scope="col">런칭일</th>
+            <th scope="col">구분 코드</th>
+            <th scope="col">과목 정보</th>
+            <th scope="col">수강생 수</th>
+            <th scope="col">연락처</th>
+            <th scope="col">소속 코드</th>
+            <th scope="col">활동 상태</th>
         </tr>
+        </thead>
+        <tbody>
         <tr>
             <td th:text="${modifyMember.memberCode}"></td>
             <td th:text="${modifyMember.memberName}"></td>
@@ -30,10 +35,11 @@
             <td th:text="${modifyMember.teamCode}"></td>
             <td th:text="${modifyMember.activeStatus}"></td>
         </tr>
+        </tbody>
     </table>
 
-
     <hr>
+    <br>
     <h3>수정할 정보를 입력해주세요</h3>
    <form action="/member/modify" method="post">
         <div class="form-group">
@@ -74,6 +80,11 @@
         </div>
         <button type="submit" class="btn btn-primary">강사정보 수정</button>
     </form>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
     <script>
         fetch('/member/team')
             .then(res => res.json())

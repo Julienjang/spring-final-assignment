@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>수능 인강 강사 전체 조회</title>
+  <meta charset="UTF-8">
+  <title>수능 인강 강사 전체 조회</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
-  <h1>전체 강사 조회</h1>
-  <table>
+<div class="container mt-4">
+  <h1 class="text-center mb-4">전체 강사 조회</h1>
+  <table class="table table-striped">
+    <thead>
     <tr>
       <th>강사 코드</th>
       <th>강사 이름</th>
@@ -18,6 +21,8 @@
       <th>소속 코드</th>
       <th>활동 상태</th>
     </tr>
+    </thead>
+    <tbody>
     <tr th:each="member : ${memberList}">
       <td th:text="${member.memberCode}"></td>
       <td th:text="${member.memberName}"></td>
@@ -29,38 +34,50 @@
       <td th:text="${member.teamCode}"></td>
       <td th:text="${member.activeStatus}"></td>
     </tr>
+    </tbody>
   </table>
 
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
+<br>
+<div id="paging" class="d-flex justify-content-center my-3">
+  <nav aria-label="Page navigation">
+    <ul class="pagination">
+      <li class="page-item" th:classappend="${memberList.first} ? 'disabled' : ''">
+        <button class="page-link" th:onclick="'location.href=\'/member/list?page=' + @{${paging.startPage}} + '\''" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </button>
+      </li>
+      <li class="page-item" th:classappend="${memberList.first} ? 'disabled' : ''">
+        <button class="page-link" th:onclick="'location.href=\'/member/list?page=' + @{${paging.currentPage - 1}} + '\''">
+          <span aria-hidden="true">&lt;</span>
+        </button>
+      </li>
+      <li class="page-item" th:each="page : ${ #numbers.sequence(paging.startPage, paging.endPage)}"
+          th:classappend="${paging.currentPage eq page} ? 'active' : ''">
+        <button class="page-link" th:onclick="'location.href=\'/member/list?page=' + @{${page}} + '\''" th:text="${page}">
+        </button>
+      </li>
+      <li class="page-item" th:classappend="${memberList.last} ? 'disabled' : ''">
+        <button class="page-link" th:onclick="'location.href=\'/member/list?page=' + @{${paging.currentPage + 1}} + '\''">
+          <span aria-hidden="true">&gt;</span>
+        </button>
+      </li>
+      <li class="page-item" th:classappend="${memberList.last} ? 'disabled' : ''">
+        <button class="page-link" th:onclick="'location.href=\'/member/list?page=' + @{${paging.endPage}} + '\''" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </button>
+      </li>
+    </ul>
+  </nav>
+</div>
 
-  <div id="paging" >
-    <button
-            th:onclick="'location.href=\'/member/list?page=' + @{${paging.startPage}} + '\''"
-            th:disabled="${ memberList.first }">
-      <<
-    </button>
-    <button
-            th:onclick="'location.href=\'/member/list?page=' + @{${paging.currentPage - 1}} + '\''"
-            th:disabled="${ memberList.first }">
-      <
-    </button>
-    <th:block th:each="page : ${ #numbers.sequence(paging.startPage, paging.endPage)}">
-      <button th:onclick="'location.href=\'/member/list?page=' + @{${page}} + '\''"
-              th:text="${ page }"
-              th:disabled="${ paging.currentPage eq page }">
-      </button>
-    </th:block>
-    <button
-            th:onclick="'location.href=\'/member/list?page=' + @{${paging.currentPage + 1}} + '\''"
-            th:disabled="${ memberList.last }">
-      >
-    </button>
-    <button
-            th:onclick="'location.href=\'/member/list?page=' + @{${paging.endPage}} + '\''"
-            th:disabled="${ memberList.last }">
-      >>
-    </button>
-  </div>
-  <button onclick="location.href='/'">메인화면으로 돌아가기</button>
+<div class="text-center my-3">
+  <button class="btn btn-primary" onclick="location.href='/'">메인화면으로 돌아가기</button>
+</div>
+
 </body>
 </html>

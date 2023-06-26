@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>수능 인강 강사 조회</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
-    <h1> 이름에 "[[${memberName}]]" 강사를 포함한 회원 조회</h1>
-    <table>
+<div class="container mt-4">
+    <h1 class="text-center mb-4">이름에 "[[${memberName}]]" 강사를 포함한 회원 조회</h1>
+    <table class="table table-striped">
+        <thead>
         <tr>
             <th>강사 코드</th>
             <th>강사 이름</th>
@@ -18,6 +21,8 @@
             <th>소속 코드</th>
             <th>활동 상태</th>
         </tr>
+        </thead>
+        <tbody>
         <tr th:each="member : ${memberList}">
             <td th:text="${member.memberCode}"></td>
             <td th:text="${member.memberName}"></td>
@@ -29,10 +34,13 @@
             <td th:text="${member.teamCode}"></td>
             <td th:text="${member.activeStatus}"></td>
         </tr>
+        </tbody>
     </table>
-
-
-    <button onclick="location.href='/member/searchName'">이전 화면으로 돌아가기</button>
-    <button onclick="location.href='/'">메인화면으로 돌아가기</button>
+    <button class="btn btn-secondary" onclick="location.href='/member/searchName'">이전 화면으로 돌아가기</button>
+    <button class="btn btn-primary" onclick="location.href='/'">메인화면으로 돌아가기</button>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>
